@@ -1,0 +1,107 @@
+
+
+MONGO_URL="mongodb+srv://will:<password>@dev.clfbdok.mongodb.net/?retryWrites=true&w=majority&appName=AtlasApp"
+
+MONGO_URL=mongodb+srv://will:will210176@dev.clfbdok.mongodb.net/?retryWrites=true&w=majority&appName=AtlasApp
+
+MONGO_DATABASE="dev"
+
+Acessar o MongoDB (Pod)
+kubectl exec -it -n dev (nome_pod) -- bash
+
+Verificar variavel ambiente: MongoDB - Comando.
+env | grep -i mongo
+
+echo -n 'mongodb+srv://will:will210176@dev.clfbdok.mongodb.net/' | base64
+
+echo 'bW9uZ29kYitzcnY6Ly93aWxsOndpbGwyMTAxNzZAZGV2LmNsZmJkb2subW9uZ29kYi5uZXQv' | base64 --decode
+
+localhost:30010/catalog/healthcheck
+
+localhost:30020/images/healthcheck
+
+
+Comandos Docker
+
+Remover todos containers.
+docker rm $(docker ps -a -q)
+
+docker log (nome_container)
+
+docker build -t williammedeiros007/gataria-frontend:v1prod . --build-arg REACT_APP_STAGE=prod
+
+
+https://rawdevops.io/docs/Bootcamp/welcome
+
+kubectl apply -f deployment.yaml -n dev
+
+kubectl get pods -n dev
+
+kubectl get all -n dev
+
+kubectl logs -n dev (nome_pod)
+
+kubectl exec -it -n dev (nome_pod) --bash
+
+kubectl describe deployment -n dev (nome_deployment) ex:gataria-frontend
+
+kubectl describe pods -n dev (nome_pod)
+
+kubectl apply -f service.yaml -n dev
+
+kubectl describe service/gataria-frontend -n dev
+
+kubectl get all -n dev -o wide
+
+watch kubectl get all -n dev
+
+kubectl describe configmaps gataria-envs -n dev
+
+kubectl top pods -n dev
+
+Helm 
+
+Deletar todos servicos do K8s para executar o Helm.
+
+helm create gataria-backend-catalog
+
+helm install gataria-frontend . -n dev
+
+helm install gataria-backend-catalog . -n dev
+
+helm list -n dev
+
+helm upgrade gataria-frontend . -n dev
+
+helm history gataria-frontend . -n dev
+
+helm rollback gataria-frontend 1 . -n dev (1 , 2 Revisions)
+
+helm delete redis
+
+helm upgrade -n dev gataria-backend-images .
+
+Repo.
+
+helm search repo gataria
+
+helm list -n dev
+
+helm unistall gataria-backend-images -n dev
+
+helm search repo gataria
+
+Instalando pelo Repo/gataria 
+helm install gataria-backend-images gataria-charts/gataria-backend-images -n dev 
+
+---
+
+GitHub Actions.
+
+kubectl create secret generic controller-manager \
+    -n github-actions \
+    --from-literal=github_app_id=${APP_ID} \
+    --from-literal=github_app_installation_id=${INSTALLATION_ID} \
+    --from-file=github_app_private_key=${PRIVATE_KEY_FILE_PATH}
+
+
